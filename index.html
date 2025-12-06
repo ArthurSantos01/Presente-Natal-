@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o Amor da Minha Vida</title>
+    <!-- Fontes do Google -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #b83b5e;
+            /* Rosa Queimado/Vinho */
+            --secondary-color: #f08a5d;
+            /* Coral suave */
+            --accent: #f9ed69;
+            /* Dourado suave */
+            --bg-color: #fff0f3;
+            /* Rosa muito claro */
+            --text-color: #4a4a4a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image: radial-gradient(#ffe0e6 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Animação de Corações Flutuantes (Substitui a neve) */
+        .heart-float {
+            position: fixed;
+            bottom: -10vh;
+            color: rgba(184, 59, 94, 0.4);
+            font-size: 1.5rem;
+            z-index: 0;
+            user-select: none;
+            pointer-events: none;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            to {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Hero Section */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* Foto de fundo romântica */
+            background: linear-gradient(rgba(60, 10, 30, 0.6), rgba(60, 10, 30, 0.4)), url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            color: #fff;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        /* Contador Elaborado */
+        .counter-wrapper {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px 50px;
+            border-radius: 20px;
+            color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(184, 59, 94, 0.2);
+            margin-top: 20px;
+            max-width: 90%;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .counter-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        #timer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .time-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .time-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .time-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* Seções Gerais */
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+        }
+
+        h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.3rem;
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+        }
+
+        /* Galeria Polaroid */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 15px 15px 50px 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: rotate(-3deg);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            width: 260px;
+            position: relative;
+        }
+
+        .polaroid::before {
+            /* Simula fita adesiva */
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .polaroid:nth-child(4n+1) {
+            transform: rotate(-3deg) translateY(0px);
+        }
+
+        .polaroid:nth-child(4n+2) {
+            transform: rotate(3deg) translateY(20px);
+        }
+
+        .polaroid:nth-child(4n+3) {
+            transform: rotate(-5deg) translateY(-10px);
+        }
+
+        .polaroid:nth-child(4n+4) {
+            transform: rotate(2deg) translateY(10px);
+        }
+
+
+        .polaroid:hover {
+            transform: scale(1.05) rotate(0deg);
+            z-index: 10;
+            box-shadow: 0 15px 30px rgba(184, 59, 94, 0.2);
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            filter: sepia(10%);
+            /* Toque vintage leve */
+        }
+
+        .polaroid p {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        /* Estilo Específico para o Polaroid de Vídeo */
+        .video-polaroid {
+            position: relative;
+        }
+
+        .video-polaroid .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 3rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            padding: 10px 15px;
+            z-index: 5;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.3s;
+        }
+
+        .video-polaroid:hover .play-icon {
+            background: rgba(184, 59, 94, 0.8);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        /* Carta de Amor e Poema Container */
+        .content-container {
+            position: relative;
+            background: #fff;
+            padding: 60px;
+            border-radius: 5px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 25px;
+        }
+
+        #letter-content {
+            background-image: repeating-linear-gradient(white 0px, white 24px, #eee 25px);
+        }
+
+        #poem-content {
+            background-color: #fcfcfc;
+            border: 1px solid #f0f0f0;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .content-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: #444;
+            white-space: pre-line;
+            z-index: 2;
+            position: relative;
+            text-align: justify;
+            /* Adicionado para justificar o texto da carta. */
+        }
+
+        #poemLoading {
+            color: var(--primary-color);
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        /* Botão Surpresa */
+        .surprise-wrapper {
+            text-align: center;
+            margin: 80px 0;
+            padding-bottom: 50px;
+        }
+
+        .gift-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.4rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 10px 20px rgba(184, 59, 94, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gift-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .gift-btn:hover:not(:disabled) {
+            background-color: #922c48;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(184, 59, 94, 0.4);
+        }
+
+        /* Modal e Camadas */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(60, 10, 30, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            animation: popIn 0.3s ease;
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-emoji {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .modal-text {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .modal-btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .modal-btn:hover {
+            background: #d47a4d;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .counter-wrapper {
+                padding: 20px;
+            }
+
+            .time-value {
+                font-size: 2rem;
+            }
+
+            .content-container {
+                padding: 30px;
+            }
+
+            #poemKeyword {
+                width: 95% !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Para Nós...</h1>
+        <p class="subtitle">Cada segundo com você é o meu momento favorito.</p>
+
+        <div class="counter-wrapper">
+            <div class="counter-title">Nossa história já tem:</div>
+            <div id="timer">
+                <!-- Javascript preenche aqui -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Galeria -->
+    <section id="memorias">
+        <h2>Nossas Memórias</h2>
+        <div class="gallery">
+
+            <!-- MEMÓRIA 1 (Original) -->
+            <div class="polaroid">
+                <img src="img/img1.jpg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/800x800/b83b5e/ffffff?text=NOSSO+DIA';"
+                    alt="Nossa foto parque de diversão">
+                <p>Aquele dia incrível</p>
+            </div>
+
+            <!-- MEMÓRIA 2 (Original) -->
+            <div class="polaroid">
+                <img src="img/img2.jpg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/800x800/f08a5d/ffffff?text=NOSSAS+RISADAS';"
+                    alt="call com filtro">
+                <p>Nossas risadas</p>
+            </div>
+
+            <!-- MEMÓRIA 3 (Original) -->
+            <div class="polaroid">
+                <img src="img/img5.jpg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/800x800/f9ed69/000000?text=MEU+LUGAR+FAVORITO';"
+                    alt="Foto sua">
+                <p>Meu lugar favorito <br>(VOCÊ❤️)</p>
+            </div>
+
+            <!-- MEMÓRIA 4 (Adicionada antes) -->
+            <div class="polaroid">
+                <img src="img/img4.jpg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/800x800/922c48/ffffff?text=PRIMEIRA+VIAGEM';"
+                    alt="primeira vez de mãos dadas">
+                <p>Primeiro Flagra</p>
+            </div>
+
+            <!-- MEMÓRIA 5 (Adicionada antes) -->
+            <div class="polaroid">
+                <img src="img/img11.jpg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/800x800/922c48/ffffff?text=PRIMEIRA+VIAGEM';"
+                    alt="primeiro natal">
+                <p>Primeiro natal</p>
+            </div>
+
+            <!-- MEMÓRIA 6 (Adicionada antes) -->
+            <div class="polaroid">
+                <img src="img/img9.jpg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/800x800/d47a4d/ffffff?text=PRIMEIRO+PRESENTE';"
+                    alt="primeira cartinha">
+                <p>O Primeiro Presente</p>
+            </div>
+
+            <!-- MEMÓRIA 7 (Adicionada antes) -->
+            <div class="polaroid">
+                <img src="img/img8.jpg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/800x800/b83b5e/ffffff?text=CAFÉ+DA+MANHÃ';"
+                    alt="fogo e água">
+                <p>O Primeiro Trote</p>
+            </div>
+
+            <!-- MEMÓRIA 8 (Adicionada antes) -->
+            <div class="polaroid">
+                <img src="img/img6.jpg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/800x800/f08a5d/ffffff?text=A+MUSICA+NOSSA';"
+                    alt="trote dos idosos">
+                <p>Nós Véinhos</p>
+            </div>
+
+            <!-- MEMÓRIA 9 (NOVA) -->
+            <div class="polaroid">
+                <img src="img/img7.jpg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/800x800/ff7e7e/ffffff?text=PÔR+DO+SOL';"
+                    alt="beijo na sala">
+                <p>Um Beijão</p>
+            </div>
+
+            <!-- MEMÓRIA 10 (NOVA) -->
+            <div class="polaroid">
+                <img src="img/img3.jpg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/800x800/c77dff/ffffff?text=CONFORTO';"
+                    alt="Foto no sol">
+                <p>Uma foto incrível</p>
+            </div>
+
+            <!-- MEMÓRIA 11 (NOVA) -->
+            <div class="polaroid">
+                <img src="img/img10.jpg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/800x800/80ff7e/ffffff?text=PRIMEIRO+ENCONTRO';"
+                    alt="uma de suas fotos favoritas">
+                <p>Uma foto favorita</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Carta -->
+    <section id="carta">
+        <h2>O que eu sinto...</h2>
+        <div class="content-container" id="letter-content">
+            <div class="content-text">
+                Oi, meu amor.
+
+                Decidi criar este site não porque é uma data específica, mas porque todo dia é dia de celebrar a sorte
+                que eu tenho de ter você.
+
+                Você transformou a minha vida de um jeito que eu nem sabia ser possível, meu xuxu você entrou na minha
+                vida com os dois pés na porta chegou chegando, chegou rapidinho e logo se tornou a pessoa mais especial
+                da minha vida, tuudo ao seu lado é mais incrivel, passamos muitas coisas para chegar até aqui, e espero
+                que possamos dar muitas risadas ainda juntos meu amorestar ao seu lado a qualquer momento é uma sorte
+                gigantesca, podemos brigar as vezes mas sempre conseguimos concertar, e tentamos
+                juntos sempre, eu te amo muito minha princesa, você é muito especial para mim. Seu sorriso ilumina meus
+                dias cinzas e seu abraço é o meu lugar mais seguro no mundo.
+
+                Obrigado por ser minha parceira, minha melhor amiga e o amor da minha vida.
+
+                EU AMO AMAR VOCÊ❤️
+
+                Com todo meu amor,
+                Arthur Henrique dos Santos 25/12/2025
+            </div>
+        </div>
+    </section>
+
+    <!-- Novo Bloco: Escritor de Poemas com Gemini -->
+    <section id="poema-gemini">
+        <h3>✨ Escritor de Poemas ✨</h3>
+        <div class="content-container" id="poem-content">
+            <p style="margin-bottom: 20px; font-style: italic; color: var(--primary-color); font-weight: 600;">Gere um
+                poema exclusivo sobre o que você está sentindo hoje!</p>
+
+            <input type="text" id="poemKeyword" placeholder="Ex: Saudade, Futuro, Risadas, Aventura..." maxlength="50"
+                style="width: 80%; max-width: 400px; padding: 12px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; text-align: center;">
+
+            <button id="generatePoemBtn" class="gift-btn" style="padding: 10px 25px; font-size: 1rem;">
+                Gerar Poema
+            </button>
+
+            <div id="poemOutput" style="margin-top: 30px; border-top: 1px solid #ddd; padding-top: 20px;">
+                <p id="poemText" class="content-text"
+                    style="text-align: center; color: #777; font-style: italic; line-height: 1.8; text-align: center;">
+                    Seu poema especial aparecerá aqui.
+                </p>
+                <p id="poemLoading" style="display: none;">Criando mágica... Aguarde um instante.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botão Surpresa com Camadas -->
+    <div class="surprise-wrapper">
+        <button class="gift-btn" onclick="startSurprise()">
+            <span>🎁</span> Abrir Presente
+        </button>
+    </div>
+
+    <!-- Estrutura do Modal -->
+    <div id="modalLayer" class="modal">
+        <div class="modal-card">
+            <span id="modalEmoji" class="modal-emoji">🤔</span>
+            <p id="modalText" class="modal-text">Texto aqui</p>
+            <div id="modalActions">
+                <!-- Botões gerados via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ======================================================
+        // 1. CONFIGURAÇÃO DA DATA (MUDE AQUI!)
+        // ======================================================
+        // Formato: (Ano, Mês-1, Dia, Hora, Minuto)
+        // Data definida: 10 de Julho de 2024
+        const startDate = new Date(2024, 6, 10, 0, 0);
+
+        // ======================================================
+        // 2. LÓGICA DO CONTADOR "REAL"
+        // ======================================================
+        function updateTimer() {
+            const now = new Date();
+            const diff = now - startDate; // Diferença em milissegundos
+
+            // Cálculo matemático preciso (baseado em dias de calendário)
+            let years = now.getFullYear() - startDate.getFullYear();
+            let months = now.getMonth() - startDate.getMonth();
+            let days = now.getDate() - startDate.getDate();
+
+            // Ajuste se o dia atual for menor que o dia inicial (pegou emprestado do mês anterior)
+            if (days < 0) {
+                months--;
+                // Pega o último dia do mês anterior para saber quantos dias somar
+                const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+                days += lastMonth.getDate();
+            }
+
+            // Ajuste se o mês for negativo (pegou emprestado do ano anterior)
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            // Horas, minutos e segundos continuam baseados na diferença simples
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            // Montar o HTML
+            const html = `
+                <div class="time-box"><span class="time-value">${years}</span><span class="time-label">Ano${years !== 1 ? 's' : ''}</span></div>
+                <div class="time-box"><span class="time-value">${months}</span><span class="time-label">Meses</span></div>
+                <div class="time-box"><span class="time-value">${days}</span><span class="time-label">Dias</span></div>
+                <div class="time-box"><span class="time-value">${hours}</span><span class="time-label">Horas</span></div>
+                <div class="time-box"><span class="time-value">${minutes}</span><span class="time-label">Min</span></div>
+                <div class="time-box"><span class="time-value">${seconds}</span><span class="time-label">Seg</span></div>
+            `;
+
+            document.getElementById('timer').innerHTML = html;
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer(); // Chama na hora para não esperar 1 seg
+
+        // ======================================================
+        // 3. LÓGICA DAS CAMADAS (BRINCADEIRA DO PRESENTE)
+        // ======================================================
+        let currentLayer = 0;
+
+        const layers = [
+            {
+                emoji: "📦",
+                text: "Você achou que seria fácil assim? Tem uma caixa dentro da caixa...",
+                btnText: "Tirar o papel"
+            },
+            {
+                emoji: "👀",
+                text: "Nossa, tá bem embrulhado hein? Tem certeza que quer continuar?",
+                btnText: "Sim, rasga logo!"
+            },
+            {
+                emoji: "🤡",
+                text: "E se for só uma meia velha lá dentro?",
+                btnText: "Eu arrisco!"
+            },
+            {
+                emoji: "🔒",
+                text: "Calma! Preciso de um beijo para desbloquear a última camada.",
+                btnText: "Já dei o beijo"
+            },
+            // ÚLTIMA CAMADA: O PRESENTE REAL
+            {
+                emoji: "🎟️",
+                text: "Parabéns! Você ganhou um vale para:\n\n✨UM JANTAR ROMÂNTICO✨\n(E direito a escolher a sobremesa)",
+                btnText: "Amei! ❤️",
+                isFinal: true
+            }
+        ];
+
+        function startSurprise() {
+            currentLayer = 0;
+            updateModal();
+            document.getElementById('modalLayer').style.display = 'flex';
+        }
+
+        function nextLayer() {
+            currentLayer++;
+            if (currentLayer < layers.length) {
+                updateModal();
+            } else {
+                closeModal(); // Fecha se acabar (embora o último botão feche também)
+            }
+        }
+
+        function updateModal() {
+            const data = layers[currentLayer];
+            document.getElementById('modalEmoji').innerText = data.emoji;
+            document.getElementById('modalText').innerText = data.text;
+
+            const actionsDiv = document.getElementById('modalActions');
+            actionsDiv.innerHTML = ''; // Limpa botões antigos
+
+            const actionBtn = document.createElement('button');
+            actionBtn.className = 'modal-btn';
+            actionBtn.innerText = data.btnText;
+
+            if (data.isFinal) {
+                actionBtn.onclick = closeModal; // O último botão fecha
+            } else {
+                actionBtn.onclick = nextLayer; // Os outros avançam
+            }
+
+            actionsDiv.appendChild(actionBtn);
+        }
+
+        function closeModal() {
+            document.getElementById('modalLayer').style.display = 'none';
+        }
+
+        // ======================================================
+        // 4. ANIMAÇÃO DE CORAÇÕES (SUBSTITUI A NEVE)
+        // ======================================================
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-float');
+            heart.innerHTML = '❤';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's'; // Mais lento que a neve
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+        setInterval(createHeart, 400); // Cria corações a cada 400ms
+
+        // ======================================================
+        // 5. INTEGRAÇÃO GEMINI API - GERADOR DE POEMAS
+        // ======================================================
+
+        async function generatePoem() {
+            const keyword = document.getElementById('poemKeyword').value.trim();
+            const poemTextElement = document.getElementById('poemText');
+            const loadingElement = document.getElementById('poemLoading');
+            const button = document.getElementById('generatePoemBtn');
+
+            if (!keyword) {
+                poemTextElement.innerHTML = "<span style='color: var(--primary-color); font-weight: 600;'>Ops!</span> Por favor, insira uma palavra-chave para o poema. 😉";
+                poemTextElement.style.color = 'var(--text-color)';
+                poemTextElement.style.fontStyle = 'normal';
+                return;
+            }
+
+            // UI Feedback
+            button.disabled = true;
+            loadingElement.style.display = 'block';
+            poemTextElement.innerText = '';
+            poemTextElement.style.fontStyle = 'italic';
+            poemTextElement.innerText = "Criando mágica... Aguarde um instante.";
+            poemTextElement.style.color = '#777';
+
+            // CHAMADA SEGURA PARA A API ROUTE DA VERCEL
+            try {
+                const response = await fetch('/api/poem', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ keyword: keyword })
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    const text = result.poem;
+                    if (text) {
+                        // Formata o texto para quebras de linha
+                        poemTextElement.innerHTML = "— O Nosso Poema —<br><br>" + text.replace(/\n/g, '<br>') + "<br><br>— Fim —";
+                        poemTextElement.style.color = 'var(--text-color)';
+                        poemTextElement.style.fontStyle = 'italic';
+                        poemTextElement.style.fontWeight = '400';
+                    } else {
+                        poemTextElement.innerText = "Não foi possível gerar um poema significativo (Resposta vazia).";
+                    }
+                } else {
+                    // Trata erros retornados pela Vercel API Route
+                    throw new Error(result.error || "Erro desconhecido na Vercel API Route.");
+                }
+
+            } catch (e) {
+                console.error("Erro ao chamar a Vercel API:", e);
+                poemTextElement.innerText = `Erro ao gerar o poema. Detalhes: ${e.message}. Verifique o console.`;
+                poemTextElement.style.color = '#b83b5e';
+            }
+
+            // Reset UI
+            button.disabled = false;
+            loadingElement.style.display = 'none';
+        }
+
+        // Attach event listener
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('generatePoemBtn');
+            if (btn) {
+                btn.onclick = generatePoem;
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+{
+    "name": "gerador-poemas-gemini-vercel",
+    "version": "1.0.0",
+    "description": "Exemplo de função serverless do Vercel para chamar a API Gemini de forma segura.",
+    "main": "poema.js",
+    "scripts": {
+        "start": "node poema.js"
+    },
+    "keywords": [
+        "vercel",
+        "gemini",
+        "ai",
+        "serverless"
+    ],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@google/genai": "*",
+        "@google/generative-ai": "^0.24.1"
+    }
+}
